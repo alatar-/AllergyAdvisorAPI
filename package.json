@@ -1,0 +1,9 @@
+{
+    "name": "AllergyAdvisor",
+    "description": "boss app",
+    "author": "alatar-",
+    "dependencies": {
+        "restify": "^3.0.1",
+        "mongoose": "^4.0.1",
+    }
+}
