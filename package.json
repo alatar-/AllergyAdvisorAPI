@@ -1,9 +1,22 @@
 {
-    "name": "AllergyAdvisor",
-    "description": "boss app",
-    "author": "alatar-",
+    "name": "AllergyAdvisorAPI",
+    "version": "1.0.0",
+    "description": "API for the AllergyAdvisor app",
+    "author": {
+        "name": "alatar-"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alatar-/AllergyAdvisorAPI"
+    },
     "dependencies": {
         "restify": "^3.0.1",
         "mongoose": "^4.0.1",
+        "mongoose-auto-increment": "^4.0"
+    },
+    "devDependencies": {
+        "mocha": "^2.2.4",
+        "jshint": "^2.7.0",
+        "apidoc": "^0.12.3"
     }
 }

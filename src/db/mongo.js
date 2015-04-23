@@ -7,6 +7,7 @@ var init = function(host, user, pass, db, debug) {
         if (err) console.error.log(err);
         else console.log("    OK");
     });
+
     mongoose.set('debug', debug);
 };
 
@@ -24,9 +25,5 @@ var productSchema = new Schema({
     }],
 });
 
-productSchema.virtual('id').get(function() {
-    return this._id;
-});
-
 exports.init = init;
-exports.products = mongoose.model('products', productSchema);
+exports.products = mongoose.model('products', productSchema); 

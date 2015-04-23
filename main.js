@@ -1,11 +1,11 @@
 //-- Dependencies
 var restify = require('restify');
 var mongoose = require('mongoose');
-var db = require('./db/mongo.js');
+var db = require('./src/db/mongo.js');
 var config = require('./config.json');
 
 //-- Versions
-var api_1_0 = require('./versions/1.0');
+var api_1_0 = require('./src/versions/1.0');
 
 //-- Create server
 var server = restify.createServer({
