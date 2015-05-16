@@ -1,5 +1,5 @@
 config.json
-scripts/
+bin/
 apidoc/
 
 # Logs

@@ -1,6 +1,6 @@
 //-- API 1.0
 
-var products = require('../services/products/products.js');
+var products = require('../services/products.js');
 
 var init = function(server) {
 

@@ -1,6 +1,6 @@
 var restify = require("restify");
-var db = require('../../db/mongo.js');
-var response = require('../../lib/response.js');
+var db = require('../db/mongo.js');
+var response = require('../lib/response.js');
 var mongoose = require('mongoose');
 
 var getProductHandler = function(req, res, next) {
@@ -13,13 +13,14 @@ var getProductHandler = function(req, res, next) {
             response.badRequest(res, "Wrong id formatting");
             return next();
         }
-
+        // console.log(mongoose.Types.ObjectId(req.params.id));
         db.products.findById(mongoose.Types.ObjectId(req.params.id), function(err, product) {
             // console.log(product);
             if (err) {
                 console.log(err);
                 response.internalError(res);
             } else if(!product) {
+                console.log("NOT FOUND");
                 response.notFound(res, product);
             } else {
                 console.log("FOUND");

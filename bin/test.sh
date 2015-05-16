@@ -1,4 +1,4 @@
 #!/bin/bash
 
 jshint src && jshint test
-# mocha
+mocha test/end2end/

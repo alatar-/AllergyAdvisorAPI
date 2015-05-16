@@ -18,7 +18,7 @@ server.use(restify.queryParser()); // parses the HTTP query string
 api_1_0.init(server);
 
 //-- Initialize db connection
-db.init(config.mongo_host, config.mongo_username, config.mongo_pass, config.mondo_dbname, config.debug);
+db.init(config.mongo_host, config.mongo_username, config.mongo_pass, config.mongo_dbname, config.debug);
 
 //-- Run server
 var port = parseInt(process.argv[2], 10) || config.port;
