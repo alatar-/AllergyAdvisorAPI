@@ -3,13 +3,31 @@ var restify = require('restify');
 var mongoose = require('mongoose');
 var db = require('./src/db/mongo.js');
 var config = require('./config.json');
+var logger = require('bunyan');
 
 //-- Versions
 var api_1_0 = require('./src/versions/1.0');
 
+//-- Create logger
+var log = new logger.createLogger({
+    name: 'app-name',
+    serializers: {
+        req: logger.stdSerializers.req
+    }
+});
+
 //-- Create server
 var server = restify.createServer({
-    name: config.name
+    name: config.name,
+    log: log
+});
+server.pre(function (request, response, next) {
+    request.log.info({ req: request }, 'REQUEST');
+    next();
+});
+server.get('/', function (request, response, next) {
+    response.send('It worked!');
+    next();
 });
 server.use(restify.bodyParser());  // turns request data into js object 
 server.use(restify.queryParser()); // parses the HTTP query string

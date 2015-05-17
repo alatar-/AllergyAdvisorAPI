@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "restify": "^3.0.1",
-    "mongoose": "^4.0.1"
+    "mongoose": "^4.0.1",
+    "bunyan": "~1.3.5"
   },
   "devDependencies": {
     "mocha": "~2.2.5",
