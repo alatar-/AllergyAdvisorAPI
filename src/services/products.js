@@ -14,7 +14,7 @@ var getProductHandler = function(req, res, next) {
             return next();
         }
         // console.log(mongoose.Types.ObjectId(req.params.id));
-        db.products.findById(mongoose.Types.ObjectId(req.params.id), function(err, product) {
+        db.Product.findById(mongoose.Types.ObjectId(req.params.id), function(err, product) {
             // console.log(product);
             if (err) {
                 console.log(err);
@@ -37,7 +37,7 @@ var getProductHandler = function(req, res, next) {
 };
 
 var getAllProductsHandler = function(req, res, next) {
-    db.products.find(function(err, products) {
+    db.Product.find(function(err, products) {
         if (err || !products) {
             console.log("error");
             response.internalError(res);
@@ -49,5 +49,30 @@ var getAllProductsHandler = function(req, res, next) {
     });
 };
 
+var addProductHandler = function(req, res, next) {
+    console.log("I am here");
+
+    if (
+        req.params.name &&
+        req.params.producer &&
+        req.params.allergens
+    ) {
+        db.Product.create({ 
+            name: req.params.name,
+            producer: req.params.producer,
+            allergens: req.params.allergens
+        }, function (err, new_prod) {
+            if (err) {
+                throw err;
+            }
+        });
+    } else {
+        console.log("missing parameters");
+        response.badRequest(res, "Missing parameters");
+        return next();
+    }
+};
+
 exports.getProduct = getProductHandler;
 exports.getAllProducts = getAllProductsHandler;
+exports.addProduct = addProductHandler;

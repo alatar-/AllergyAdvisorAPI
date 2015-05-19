@@ -86,75 +86,13 @@ var init = function(server) {
      */
     server.get('/products', products.getAllProducts);
 
-    /**
-     * @api {get} /products Get all products
-     * @apiName GetAllProducts
-     * @apiGroup Products
-     *
-     * @apiSampleRequest http://127.0.0.1:3531/products
-     *
-     * @apiSuccess {Array} products List of products.
-     *
-     * @apiSuccessExample Success-Response:
-     *     HTTP/1.1 200 OK
-     *     [
-     *          {
-     *              "name" : "Nutella", 
-     *              "producer" : "Ferrero", 
-     *              "description" : null, 
-     *              "allergens" : [ 
-     *                  { 
-     *                      "name" : "Orzechy laskowe", 
-     *                      "positive_votes" : 121, 
-     *                      "negative_votes" : 2 
-     *                  } 
-     *              ] 
-     *          },
-     *          ...
-     *     ]
-     *
-     * @apiError InternalError Server internal error.
-     *
-     * @apiErrorExample Error-Response:
-     *     HTTP/1.1 500 Internal Error
-     *     {
-     *       "message": "Internal error",
-     *     }
-     */
-    server.get('/products', products.getAllProducts);
 
     /**
      * @api {post} /products Save new product
      * @apiName AddProduct
      * @apiGroup Products
-     *
-     * @apiSuccess {String} id Id of the product.
-     *
-     * @apiSuccessExample Success-Response:
-     *     HTTP/1.1 200 OK
-     *     {
-     *       "id": "554b183fa4a09606941e53bb"
-     *     }
-     *
-     * @apiError BadRequest One of the arguments is invalid.
-     * @apiError InternalError Server internal error.
-     * @apiError AlreadyExists Product with such name already exists
-     *
-     * @apiErrorExample Error-Response:
-     *     HTTP/1.1 400 Bad Request
-     *     {
-     *       "message": "Name is badly formatted.",
-     *     }
      */
-    // server.post('/1.0/users', users.registerUser);
-
-    /**
-     * @api {post} /products/:id/allergen/:id2/vote Vote for allergen
-     * @apiName Vote
-     * @apiGroup Votes
-     *
-     * @apiSuccess
-     */
+    server.post('/products', products.addProduct)
 
 
 };

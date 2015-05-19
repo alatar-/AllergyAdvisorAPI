@@ -1,0 +1,9 @@
+{
+    "name": "AllergyAdvisor API",
+    "port": 3531,
+    "mongo_host": "localhost",
+    "mongo_username": "",
+    "mongo_pass": "",
+    "mongo_dbname": "allergydb",
+    "debug": true
+}

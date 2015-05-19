@@ -25,10 +25,6 @@ server.pre(function (request, response, next) {
     request.log.info({ req: request }, 'REQUEST');
     next();
 });
-server.get('/', function (request, response, next) {
-    response.send('It worked!');
-    next();
-});
 server.use(restify.bodyParser());  // turns request data into js object 
 server.use(restify.queryParser()); // parses the HTTP query string
 
