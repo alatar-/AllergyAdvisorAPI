@@ -37,7 +37,9 @@ var getProductHandler = function(req, res, next) {
 };
 
 var getAllProductsHandler = function(req, res, next) {
-    db.Product.find(function(err, products) {
+    searchName = req.params.name || ".*";
+
+    db.Product.find({"name": {$regex: searchName} }, function(err, products) {
         if (err || !products) {
             console.log("error");
             response.internalError(res);

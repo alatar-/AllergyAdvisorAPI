@@ -54,7 +54,8 @@ var init = function(server) {
      * @apiName GetAllProducts
      * @apiGroup Products
      *
-     * @apiSampleRequest http://127.0.0.1:3531/products
+     * @apiParam {String} [name] search query for products matching the name pattern
+     * @apiSampleRequest http://127.0.0.1:3531/products?name=Nutell
      *
      * @apiSuccess {Array} products List of products.
      *
