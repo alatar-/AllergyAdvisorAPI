@@ -26,5 +26,11 @@ var productSchema = new Schema({
     }],
 });
 
+var allergenSchema = new Schema({
+    name:     String,
+});
+
+
 exports.init = init;
 exports.Product = mongoose.model('products', productSchema); 
+exports.Allergen = mongoose.model('allergens', allergenSchema); 

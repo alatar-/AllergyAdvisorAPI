@@ -1,6 +1,7 @@
 //-- API 1.0
 
 var products = require('../services/products.js');
+var allergens = require('../services/allergens.js');
 
 var init = function(server) {
 
@@ -95,6 +96,8 @@ var init = function(server) {
      */
     server.post('/products', products.addProduct)
 
+
+    server.get('/allergens', allergens.getAllAllergens);
 
 };
 
